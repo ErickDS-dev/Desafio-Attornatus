@@ -40,7 +40,7 @@ Para executar a aplicação, certifique-se de ter o Java e o Maven instalados. E
 1. Clone o repositório para sua máquina local.
    
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/ErickDS-dev/Desafio-Attornatus
 
 2. Navegue até o diretório do projeto.
    

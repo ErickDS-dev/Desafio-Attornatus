@@ -1,5 +1,6 @@
 package com.attornatus.desafio.controllers;
 
+import com.attornatus.desafio.entities.Address;
 import com.attornatus.desafio.entities.Person;
 import com.attornatus.desafio.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +33,13 @@ public class PersonController {
     @PutMapping("/{id}")
     public Person updatePerson(@PathVariable Long id, @RequestBody Person updatedPerson) {
         Person existingPerson = personRepository.findById(id).orElse(null);
-        if (existingPerson != null) {
-            existingPerson.setName(updatedPerson.getName());
-            existingPerson.setDateOfBirth(updatedPerson.getDateOfBirth());
-            existingPerson.setAddresses(updatedPerson.getAddresses());
-            return personRepository.save(existingPerson);
+        if (existingPerson == null) {
+            return null;
         }
-        return null;
+
+        existingPerson.setPerson(updatedPerson.getName(),updatedPerson.getDateOfBirth(),(Address) updatedPerson.getAddresses());
+
+        return personRepository.save(existingPerson);
+
     }
 }

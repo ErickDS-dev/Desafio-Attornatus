@@ -39,12 +39,9 @@ public class AddressController {
     public Address setMainAddressForPerson(@PathVariable Long personId, @PathVariable Long addressId) {
         return personRepository.findById(personId).map(person -> {
             for (Address address : person.getAddresses()) {
-                if (address.getId().equals(addressId)) {
-                    address.setMain(true);
-                } else {
-                    address.setMain(false);
-                }
+                    address.setMain(address.getId().equals(addressId));
             }
+
             personRepository.save(person);
             return addressRepository.findById(addressId).orElse(null);
         }).orElse(null);

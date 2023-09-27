@@ -22,6 +22,10 @@ public class Person {
         return addresses;
     }
 
+    public void addAddress(Address address) {
+        addresses.add(address);
+    }
+
     public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;
     }
@@ -48,6 +52,12 @@ public class Person {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setPerson(String name, String dateOfBirth, Address address) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.addresses = addresses;
     }
 
 }
